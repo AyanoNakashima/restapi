@@ -1,6 +1,5 @@
 package com.example.api;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,9 @@ public class ItemRestController {
 
 	@GetMapping
 	List<Item> getItems() {
-//        List<Item> customers = itemService.findAll();
-//        return customers;
+        List<Item> customers = itemService.findAll();
+        return customers;
 
-		return Arrays.asList(new Item());
 	}
 
 }

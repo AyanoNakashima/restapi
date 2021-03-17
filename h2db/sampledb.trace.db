@@ -165,3 +165,23 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/Users/lb/Do
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
 	... 63 more
+2021-03-17 20:50:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
+Table "ITEMS" not found; SQL statement:
+select item0_.id as id1_0_, item0_.img_path as img_path2_0_, item0_.name as name3_0_, item0_.price as price4_0_ from items item0_ [42102-200]
+2021-03-17 20:50:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
+Table "ITEMS" not found; SQL statement:
+select item0_.id as id1_0_, item0_.img_path as img_path2_0_, item0_.name as name3_0_, item0_.price as price4_0_ from items item0_ [42102-200]
+2021-03-17 21:02:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
+Table "ITEMS" not found; SQL statement:
+select item0_.id as id1_0_, item0_.img_path as img_path2_0_, item0_.name as name3_0_, item0_.price as price4_0_ from items item0_ [42102-200]
+2021-03-17 21:07:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
+Table "ITEMS" not found; SQL statement:
+select item0_.id as id1_0_, item0_.img_path as img_path2_0_, item0_.name as name3_0_, item0_.price as price4_0_ from items item0_ [42102-200]
+2021-03-17 21:09:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "ITEMS" が見つかりません
+Table "ITEMS" not found; SQL statement:
+select item0_.id as id1_0_, item0_.img_path as img_path2_0_, item0_.name as name3_0_, item0_.price as price4_0_ from items item0_ [42102-200]
