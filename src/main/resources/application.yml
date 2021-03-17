@@ -2,3 +2,10 @@ spring :
  datasource : 
   driverClassName : net.sf.log4jdbc.sql.jdbcapi.DriverSpy
   url : jdbc:log4jdbc:h2:mem:hogedb
+logging : 
+  level : 
+    jdbc : 
+      connection : off
+      sqltiming : off
+      audit : off
+      resultset : off
