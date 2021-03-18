@@ -12,9 +12,13 @@ import com.example.repository.ItemRepository;
 public class ItemService {
 	@Autowired
 	ItemRepository itemRepository;
-	
+
 	public List<Item> findAll() {
 		return itemRepository.findAll();
 	}
-	
+
+	public Item create(Item item) {
+		return itemRepository.save(item);
+	}
+
 }
