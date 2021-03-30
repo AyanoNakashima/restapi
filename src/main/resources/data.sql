@@ -1,4 +1,11 @@
-INSERT INTO items(name, price, img_path) VALUES('りんご', 100,  'apple.jpg');
-INSERT INTO items(name, price, img_path) VALUES('ばなな', 200, 'banana.jpg');
-INSERT INTO items(name, price, img_path) VALUES('みかん', 300, 'mikan.jpg');
-INSERT INTO items(name, price, img_path) VALUES('ぶどう', 400, 'glape.jpg');
+INSERT INTO items(name, price) VALUES('りんご', 100);
+INSERT INTO items(name, price) VALUES('りんご', 150);
+INSERT INTO items(name, price) VALUES('ばなな', 200);
+INSERT INTO items(name, price) VALUES('ばなな', 600);
+INSERT INTO items(name, price) VALUES('みかん', 300);
+INSERT INTO items(name, price) VALUES('オレンジ', 350);
+INSERT INTO items(name, price) VALUES('ぶどう', 400);
+INSERT INTO items(name, price) VALUES('パイナップル', 500);
+INSERT INTO items(name, price) VALUES('マスカット', 600);
+INSERT INTO items(name, price) VALUES('いちご', 400);
+INSERT INTO items(name, price) VALUES('いちご', 1500);

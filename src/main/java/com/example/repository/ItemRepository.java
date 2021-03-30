@@ -8,5 +8,8 @@ import com.example.domain.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Integer>{
 
-//	List<Item> findAll();
+List<Item> findAll();
+List <Item> findByNameLike(String keyword);
+List<Item> findByNameAndPrice(String name, int price);
+
 }

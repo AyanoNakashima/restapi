@@ -21,4 +21,35 @@ public class ItemService {
 		return itemRepository.save(item);
 	}
 
+	public void delete(Integer absd) {
+		itemRepository.deleteById(absd);
+
+//	//	Item a = new Item();
+//		a.setId(idyyy);
+//		itemRepository.delete(a);
+	}
+
+	public Item update(Item item) {
+		return itemRepository.save(item);
+	}
+
+	public Item findById(Integer aaa) {
+//		Optional<Item> ss =itemRepository.findById(aaa);
+//		Item fff = ss.get();
+//		return fff;
+
+		return itemRepository.findById(aaa).get();
+	}
+
+	public List<Item> findByNameLike(String keyword) {
+//		List<Item> aaa = itemRepository.findByNameLike("%"+keyword+"%");
+		return itemRepository.findByNameLike("%" + keyword + "%");
+	}
+
+	public List<Item> findByNameAndPrice(String name, int price) {
+		// TODO Auto-generated method stub
+		return itemRepository.findByNameAndPrice(name,price);
+	}
+	
+
 }

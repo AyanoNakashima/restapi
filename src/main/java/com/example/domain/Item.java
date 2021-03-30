@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+
 @Entity
 @Table(name = "items")
 @Data
@@ -31,5 +32,5 @@ public class Item implements Serializable {
 	@Column(nullable = false)
 	private Integer price;
 
-	private String imgPath;
+//	private String imgPath;
 }

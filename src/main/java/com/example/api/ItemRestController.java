@@ -4,10 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,16 +26,45 @@ public class ItemRestController {
 	ItemService itemService;
 
 	@GetMapping
-	List<Item> getItems() {
+	public List<Item> getItems() {
 		List<Item> customers = itemService.findAll();
 		return customers;
-
 	}
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	Item postItem(@RequestBody Item item) {
+	public Item postItem(@RequestBody Item item) {
 		return itemService.create(item);
+	}
+
+	@DeleteMapping(path = "{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	void deleteItem(@PathVariable Integer id) {
+		itemService.delete(id);
+	}
+
+	@PutMapping(path = "{id}")
+	public Item putItem(@PathVariable Integer id, @RequestBody Item item) {
+		item.setId(id);
+		return itemService.update(item);
+	}
+	
+	@GetMapping("/{id}")
+	public Item findById(@PathVariable Integer id) {
+		return itemService.findById(id);
+	}
+	
+	@GetMapping("/findByNameLike")
+	public List<Item> findByNameLike(@RequestParam(name = "keyword") String name) {
+//	public List<Item> findByNameLike(@RequestParam String keyword,Model model) {
+//		List<Item> aaa = itemService.findByNameLike(name);
+//		model.addAttribute("aaa",aaa);
+		return itemService.findByNameLike(name);
+	}
+	
+	@GetMapping("/findByNameAndPrice")
+	public List<Item> findByNameAndPrice(@RequestParam String name,int price) {
+		return itemService.findByNameAndPrice(name,price);
 	}
 
 }
