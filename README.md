@@ -45,10 +45,9 @@ $ ~do anything~
 3. デプロイ
  
 ## 作者
- 
-[@TanakanoAnchan](https://twitter.com/TanakanoAnchan)
-mail to: xxxx@mail.com
- 
+＠AyanoNakashima 
+
 ## ライセンス
+不明
 
 </blockquote>
