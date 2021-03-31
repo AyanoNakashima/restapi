@@ -20,14 +20,14 @@ SpringBootでDBの追加・更新・削除・検索を行う
 ## 使い方
  
 1. http://localhost:8080/api/items に接続
-2. 使い方
+2. http://localhost:8080/api/items/findByNameLike?keyword=
 3. 使い方
  
 ## インストール
  
 ```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
-$ cd awesome-tool
+$ git clone https://github.com/AyanoNakashima/reatapi
+$ cd restapi
 $ sh setup.sh
 $ ~do anything~
 ```
