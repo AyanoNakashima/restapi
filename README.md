@@ -15,34 +15,25 @@ SpringBootでDBの追加・更新・削除・検索を行う
 
 ## 必要要件
  
-- lombokのインストール
+- Java SE 8
+- Spring Tool Suite
+- lombok
  
 ## 使い方
  
-1. http://localhost:8080/api/items に接続
-2. http://localhost:8080/api/items/findByNameLike?keyword=
-3. 使い方
- 
+1. 全件検索：$ curl http://localhost:8080/api/items
+2. 名前Like検索：$ curl http://localhost:8080/api/items/findByNameLike?keyword=○○ 
+4. DB更新：$ curl http://localhost:8080/api/items -i -XPOST -H "Content-Type: application/json" -d "{\"name\":\"〇〇\",\"price\":\"〇〇\"}"
+5. DB削除：$ curl http://localhost:8080/api/items/○ -i -XDELETE
+
+
 ## インストール
  
 ```
 $ git clone https://github.com/AyanoNakashima/reatapi
-$ cd restapi
-$ sh setup.sh
+$ git pull master
 $ ~do anything~
 ```
- 
-## テスト
- 
-1. 使い方
-2. 使い方
-3. 使い方
- 
-## デプロイ
- 
-1. デプロイ
-2. デプロイ
-3. デプロイ
  
 ## 作者
 ＠AyanoNakashima 
