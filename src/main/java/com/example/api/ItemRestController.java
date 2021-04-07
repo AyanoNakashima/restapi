@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,12 +47,12 @@ public class ItemRestController {
 		item.setId(id);
 		return itemService.update(item);
 	}
-	
+
 	@GetMapping("/{id}")
 	public Item findById(@PathVariable Integer id) {
 		return itemService.findById(id);
 	}
-	
+
 	@GetMapping("/findByNameLike")
 	public List<Item> findByNameLike(@RequestParam(name = "keyword") String name) {
 //	public List<Item> findByNameLike(@RequestParam String keyword,Model model) {
@@ -61,10 +60,20 @@ public class ItemRestController {
 //		model.addAttribute("aaa",aaa);
 		return itemService.findByNameLike(name);
 	}
-	
+
 	@GetMapping("/findByNameAndPrice")
-	public List<Item> findByNameAndPrice(@RequestParam String name,int price) {
-		return itemService.findByNameAndPrice(name,price);
+	public List<Item> findByNameAndPrice(@RequestParam String name, int price) {
+		return itemService.findByNameAndPrice(name, price);
+	}
+
+	@GetMapping("/findByNameNotLike")
+	public List<Item> findByNameOrPrice(@RequestParam String name) {
+		return itemService.findBynameNotLike(name);
+	}
+
+	@GetMapping("/findByPriceLessThan")
+	public List<Item> findByPriceLessThan(@RequestParam int price) {
+		return itemService.findByPriceLessThan(price);
 	}
 
 }

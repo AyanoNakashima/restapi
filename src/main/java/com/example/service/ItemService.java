@@ -47,9 +47,15 @@ public class ItemService {
 	}
 
 	public List<Item> findByNameAndPrice(String name, int price) {
-		// TODO Auto-generated method stub
-		return itemRepository.findByNameAndPrice(name,price);
+		return itemRepository.findByNameAndPrice(name, price);
 	}
-	
+
+	public List<Item> findBynameNotLike(String name) {
+		return itemRepository.findBynameNotLike("%" + name + "%");
+	}
+
+	public List<Item> findByPriceLessThan(int price) {
+		return itemRepository.findByPriceLessThan(price);
+	}
 
 }
