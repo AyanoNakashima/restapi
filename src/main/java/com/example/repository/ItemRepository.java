@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.domain.Item;
 
-public interface ItemRepository extends JpaRepository<Item, Integer> {
+public interface ItemRepository extends JpaRepository<Item,Integer> {
 
-	List<Item> findAll();
+//	List<Item> findAll();
 
 	List<Item> findByNameLike(String keyword);
 
@@ -19,5 +19,7 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
 	List<Item> findBynameNotLike(String name);
 
 	List<Item> findByPriceLessThan(int price);
+
+
 
 }

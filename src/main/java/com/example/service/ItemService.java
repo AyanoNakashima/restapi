@@ -3,6 +3,8 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.Item;
@@ -56,6 +58,15 @@ public class ItemService {
 
 	public List<Item> findByPriceLessThan(int price) {
 		return itemRepository.findByPriceLessThan(price);
+	}
+
+	public List<Item> find(Item item) {
+		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("name",
+				match -> match.ignoreCase().startsWith());
+
+		Example<Item> example = Example.of(item, matcher);
+
+		return itemRepository.findAll(example);
 	}
 
 }

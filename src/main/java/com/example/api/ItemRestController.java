@@ -38,7 +38,7 @@ public class ItemRestController {
 
 	@DeleteMapping(path = "{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	void deleteItem(@PathVariable Integer id) {
+	public void deleteItem(@PathVariable Integer id) {
 		itemService.delete(id);
 	}
 
@@ -74,6 +74,11 @@ public class ItemRestController {
 	@GetMapping("/findByPriceLessThan")
 	public List<Item> findByPriceLessThan(@RequestParam int price) {
 		return itemService.findByPriceLessThan(price);
+	}
+	
+	@PostMapping("/find")
+	public List<Item> find(@RequestBody Item item) {
+		return itemService.find(item);
 	}
 
 }
