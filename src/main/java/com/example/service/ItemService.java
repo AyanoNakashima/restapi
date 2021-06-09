@@ -2,9 +2,15 @@ package com.example.service;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.example.domain.Item;
@@ -17,6 +23,31 @@ public class ItemService {
 
 	public List<Item> findAll() {
 		return itemRepository.findAll();
+	}
+
+	// TODO
+	public List<Item> findAllMemo(String keyword) {
+		
+		Specification<Item> spec = keywordContains(keyword);
+
+		return itemRepository.findAll(spec);
+	}
+
+	
+	
+	private Specification<Item> keywordContains(String keyword) {
+		return new Specification<Item>() {
+		       /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		       public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+		           return cb.like(root.get("memo"), "%" + keyword + "%");
+		       }
+
+		   };
 	}
 
 	public Item create(Item item) {
@@ -68,5 +99,6 @@ public class ItemService {
 
 		return itemRepository.findAll(example);
 	}
+
 
 }

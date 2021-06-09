@@ -32,5 +32,8 @@ public class Item implements Serializable {
 	@Column(nullable = false)
 	private Integer price;
 
+	@Column(nullable = false)
+	private String memo;
+	
 //	private String imgPath;
 }

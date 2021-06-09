@@ -23,6 +23,7 @@ import com.example.service.ItemService;
 public class ItemRestController {
 	@Autowired
 	ItemService itemService;
+	private Object findAll;
 
 	@GetMapping
 	public List<Item> getItems() {
@@ -75,10 +76,52 @@ public class ItemRestController {
 	public List<Item> findByPriceLessThan(@RequestParam int price) {
 		return itemService.findByPriceLessThan(price);
 	}
-	
-	@PostMapping("/find")
+
+	@PostMapping("/Sfind")
 	public List<Item> find(@RequestBody Item item) {
 		return itemService.find(item);
 	}
 
+	@GetMapping("/findAllMemo")
+	public List<Item> findAllMemo(@RequestParam String keyword) {
+		return itemService.findAllMemo(keyword);
+	}
+//	public List<Item> findByMemoLike(@RequestParam String word1) {
+//	
+//		String[] words = word1.split(" ");
+//		String str = "";
+//	
+//		Specification<Item> zero = Specification.where((Specification<Item>)null);
+//
+//		for (String word : words) {
+//			
+//			str = str + word;
+//			System.out.println("%" + str + "%");
+//			
+//			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+//				Specification<Item> wordContains(String word){
+//				    return (item, cq, cb) -> cb.like(item.get("word"), "%" + word + "%");
+//				}
+//			
+//			zero += Specification.or(Specification<Item>.wordContains());
+//}}
+
+
+//		return StringUtils.isEmpty(word) ? null : new Specification<Item>() {
+//			/**
+//			 * 
+//			 */ïï
+//			private static final long serialVersionUID = 1L;
+//
+//			@Override
+//			public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+//				return cb.like(root.get("word1"), "%" + word1 + "%");
+//			}
+//		};
+
+//		n週目まで１個づつ取り出したwordをSQLにしてぶっ飛ばす
+//		つまりここでSQLを作る
+//		ということは？？どうすればいいの？？？？？？？
+
 }
+
