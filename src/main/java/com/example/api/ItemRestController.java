@@ -23,7 +23,6 @@ import com.example.service.ItemService;
 public class ItemRestController {
 	@Autowired
 	ItemService itemService;
-	private Object findAll;
 
 	@GetMapping
 	public List<Item> getItems() {
@@ -77,7 +76,7 @@ public class ItemRestController {
 		return itemService.findByPriceLessThan(price);
 	}
 
-	@PostMapping("/Sfind")
+	@PostMapping("/find")
 	public List<Item> find(@RequestBody Item item) {
 		return itemService.find(item);
 	}
@@ -106,7 +105,6 @@ public class ItemRestController {
 //			zero += Specification.or(Specification<Item>.wordContains());
 //}}
 
-
 //		return StringUtils.isEmpty(word) ? null : new Specification<Item>() {
 //			/**
 //			 * 
@@ -124,4 +122,3 @@ public class ItemRestController {
 //		ということは？？どうすればいいの？？？？？？？
 
 }
-

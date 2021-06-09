@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 import com.example.domain.Item;
 
-public interface ItemRepository extends JpaRepository<Item,Integer>,JpaSpecificationExecutor<Item> {
+public interface ItemRepository extends JpaRepository<Item, Integer>, JpaSpecificationExecutor<Item> {
 
 //	List<Item> findAll();
 
@@ -22,7 +22,5 @@ public interface ItemRepository extends JpaRepository<Item,Integer>,JpaSpecifica
 	List<Item> findByPriceLessThan(int price);
 
 //	List<Item> findAll(Specification<Item> spec);
-	
-
 
 }

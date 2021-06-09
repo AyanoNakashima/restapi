@@ -27,27 +27,40 @@ public class ItemService {
 
 	// TODO
 	public List<Item> findAllMemo(String keyword) {
-		
-		Specification<Item> spec = keywordContains(keyword);
+
+		String[] words = keyword.split(" ");
+		Specification<Item> spec = Specification.where((Specification<Item>) null);
+
+		for (String word : words) {
+
+//			spec = Specification.where(keywordContains(word)).or(spec);
+			spec = spec.or(keywordContains(word));
+
+		}
 
 		return itemRepository.findAll(spec);
 	}
 
-	
-	
+//	public List<Item> findAllMemo(String keyword) {
+//		
+//		Specification<Item> spec = keywordContains(keyword);
+//
+//		return itemRepository.findAll(spec);
+//	}
+
 	private Specification<Item> keywordContains(String keyword) {
 		return new Specification<Item>() {
-		       /**
-			 * 
-			 */
+			/**
+			* 
+			*/
 			private static final long serialVersionUID = 1L;
 
 			@Override
-		       public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-		           return cb.like(root.get("memo"), "%" + keyword + "%");
-		       }
+			public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.like(root.get("memo"), "%" + keyword + "%");
+			}
 
-		   };
+		};
 	}
 
 	public Item create(Item item) {
@@ -99,6 +112,5 @@ public class ItemService {
 
 		return itemRepository.findAll(example);
 	}
-
 
 }
