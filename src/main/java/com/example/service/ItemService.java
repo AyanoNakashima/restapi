@@ -21,126 +21,118 @@ public class ItemService {
 
 	@Autowired
 	ItemRepository itemRepository;
-	// 依存性の注入（dependency injection:DI）
-	// これ以降ItemRepositoryのものはnewする必要がなくなる
+
+	public List<Item> findAll() {
+
+		return itemRepository.findAll();
+	}
 
 	public Item create(Item item) {
+
 		return itemRepository.save(item);
 	}
 
 	public void delete(Integer deleteid) {
+
 		itemRepository.deleteById(deleteid);
 	}
 
 	public Item update(Item item) {
+
 		return itemRepository.save(item);
 	}
 
-	public List<Item> findAll() {
-		return itemRepository.findAll();
-	}
-
 	public Item findById(Integer id) {
+
+		// TODO Optionalの説明
 		return itemRepository.findById(id).get();
-//		getとは????
 	}
 
 	public List<Item> findByNameLike(String keyword) {
+
 		return itemRepository.findByNameLike("%" + keyword + "%");
 	}
 
 	public List<Item> findByNameAndPrice(String name, int price) {
+
 		return itemRepository.findByNameAndPrice(name, price);
 	}
 
+	// TODO Camelケースで書きましょう
 	public List<Item> findBynameNotLike(String name) {
+
 		return itemRepository.findBynameNotLike("%" + name + "%");
 	}
 
 	public List<Item> findByPriceLessThan(int price) {
+
 		return itemRepository.findByPriceLessThan(price);
 	}
 
 	public List<Item> find(Item item) {
 
-//		ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("name",
-//				match -> match.ignoreCase().startsWith());
-
+		// TODO 1行で書きましょう
 		Example<Item> example = Example.of(item);
-//		Example<Item> example = Example.of(item, matcher);
-
 		return itemRepository.findAll(example);
 	}
 
 	public List<Item> findAllMemo(String keyword) {
 
 		String[] words = keyword.split(" ");
+
 		Specification<Item> spec = Specification.where((Specification<Item>) null);
 
 		for (String word : words) {
-//			spec = Specification.where(keywordContains(word)).or(spec);
-			spec = spec.or(keywordContains(word));
 
+			spec = spec.or(keywordContains(word));
 		}
 
 		return itemRepository.findAll(spec);
 	}
 
-//	public List<Item> findAllMemo(String keyword) {
-//		
-//		Specification<Item> spec = keywordContains(keyword);
-//
-//		return itemRepository.findAll(spec);
-//	}
 
+	// TODO 項目名を引数で受け取り、memo/Like句検索 ⇒ Like句検索用の Specificationに変更
 	private Specification<Item> keywordContains(String keyword) {
+
+		// TODO ラムダ式を使いましょう
+		// TODO nullチェックしましょう
 		return new Specification<Item>() {
-			/**
-			* 
-			*/
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+
+				// TODO ？？
 //				return cb.like(root.get("memo"), "%" + keyword + "%");
 				return root.get("memo").in(keyword);
 			}
-
 		};
 	}
 
 	public List<Item> findAllByName(String keyword) {
 
+		// TODO 1行で書きましょう
 		String[] words = keyword.split(" ");
-
-//		List<String> l1 = new ArrayList<>();
-//
-//		for (String word : words)
-//			l1.add(word);
-
 		List<String> l2 = Arrays.asList(words);
-//		List<String> l3 = new ArrayList<>(Arrays.asList(words));
-
-//		Specification<Item> spec = Specification.where((Specification<Item>) null);
-////			spec = Specification.where(keywordContains(word)).or(spec);
-//		spec = nameInclude(l2);
 		return itemRepository.findAll(nameInclude(l2));
-
 	}
 
+	// TODO 項目名を引数で受け取り、name/IN句検索 ⇒ IN句検索用の Specificationに変更
 	private Specification<Item> nameInclude(List<String> nameList) {
+
+		// TODO ラムダ式を使いましょう
+		// TODO CollectionUtils#isEmpty()を使いましょう
 		return nameList.size() == 0 ? null : new Specification<Item>() {
-			/**
-			 * 
-			 */
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public Predicate toPredicate(Root<Item> root, CriteriaQuery<?> criteriaQuery,
 					CriteriaBuilder criteriaBuilder) {
+
 				return root.get("name").in(nameList);
 			}
 		};
 	}
-
 }
