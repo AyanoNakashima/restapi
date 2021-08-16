@@ -28,13 +28,10 @@ public class ItemRestController {
 	@GetMapping
 	public List<Item> getItems() {
 
-		// TODO 1行で書きましょう
-		List<Item> customers = itemService.findAll();
-		return customers;
+		return itemService.findAll();
 	}
 
 	@PostMapping
-	// TODO @ResponseStatusの補足
 	@ResponseStatus(HttpStatus.CREATED)
 	public Item postItem(@RequestBody Item item) {
 
@@ -56,15 +53,13 @@ public class ItemRestController {
 		return itemService.update(item);
 	}
 
-	// TODO @GetMapping(path = "{id}")で統一しましょう
-	@GetMapping("/{id}")
+	@GetMapping(path = "{id}")
 	public Item findById(@PathVariable Integer id) {
 
 		return itemService.findById(id);
 	}
 
 	@GetMapping("/findByNameLike")
-	// TODO @PathVariableの補足
 	public List<Item> findByNameLike(@RequestParam(name = "keyword") String name) {
 
 		return itemService.findByNameLike(name);
@@ -79,7 +74,7 @@ public class ItemRestController {
 	@GetMapping("/findByNameNotLike")
 	public List<Item> findByNameOrPrice(@RequestParam String name) {
 
-		return itemService.findBynameNotLike(name);
+		return itemService.findByNameNotLike(name);
 	}
 
 	@GetMapping("/findByPriceLessThan")
@@ -88,23 +83,22 @@ public class ItemRestController {
 		return itemService.findByPriceLessThan(price);
 	}
 
-	// TODO findAllByItemとか
-	@PostMapping("/find")
-	public List<Item> find(@RequestBody Item item) {
+	@PostMapping("/findAllByItem")
+	public List<Item> findAllByItem(@RequestBody Item item) {
 
-		return itemService.find(item);
+		return itemService.findAllByItem(item);
 	}
 
-	// TODO findAllByMemoとか
-	@GetMapping("/findAllMemo")
-	public List<Item> findAllMemo(@RequestParam String keyword) {
+	@GetMapping("/findAllByColumnLike")
+	public List<Item> findAllByColumnLike(@RequestParam String column, String keyword) {
 
-		return itemService.findAllMemo(keyword);
+		return itemService.findAllByColumnLike(column, keyword);
 	}
 
-	@GetMapping("/findAllByName")
-	public List<Item> findAllByName(@RequestParam String keyword) {
+	@GetMapping("/findAllByColumn")
+	public List<Item> findAllByColum(@RequestParam String column, String keyword) {
 
-		return itemService.findAllByName(keyword);
+		return itemService.findAllByColumn(column, keyword);
 	}
+
 }

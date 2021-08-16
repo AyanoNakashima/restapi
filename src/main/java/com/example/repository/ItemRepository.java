@@ -13,8 +13,7 @@ public interface ItemRepository extends JpaRepository<Item, Integer>, JpaSpecifi
 
 	List<Item> findByNameAndPrice(String name, int price);
 
-	// TODO Camelケースで書きましょう
-	List<Item> findBynameNotLike(String name);
+	List<Item> findByNameNotLike(String name);
 
 	List<Item> findByPriceLessThan(int price);
 }
