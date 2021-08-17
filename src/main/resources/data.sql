@@ -9,3 +9,6 @@ INSERT INTO items(name, price,memo) VALUES('パイナップル', 500,'gmail 酸�
 INSERT INTO items(name, price,memo) VALUES('マスカット', 600,'gmail 酸っぱい　山梨');
 INSERT INTO items(name, price,memo) VALUES('いちご', 400,'yahoo 酸っぱい　栃木');
 INSERT INTO items(name, price,memo) VALUES('いちご', 1500,'yahoo 酸っぱい　茨城');
+INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(1,'A', 'コメント',CURRENT_TIMESTAMP());
+INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(1,'B', 'コメント',CURRENT_TIMESTAMP());
+INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(2,'C', 'コメント',CURRENT_TIMESTAMP());

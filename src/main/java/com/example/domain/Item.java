@@ -12,12 +12,8 @@ import lombok.Data;
 @Entity
 @Table(name = "items")
 @Data
-// TODO Serializable不要
-//public class Item implements Serializable {
 public class Item {
 
-//	private static final long serialVersionUID = -3754903618180147285L;
-//
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
