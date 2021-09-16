@@ -1,0 +1,20 @@
+
+###
+PUT http://localhost:8080/api/items/addstar/1?star=3
+
+###
+GET http://localhost:8080/api/items/findAllByColumn?column=name&keyword= りんご  みかん. ぶどう
+
+### GGG
+
+POST http://localhost:8080/api/items
+Content-Type: application/json
+
+  {
+    "name": "りんご",
+    "price": 8888,
+    "memo": "gmail 甘い　青森SS"
+  }
+
+###
+GET http://localhost:8080/api/items/

@@ -2,6 +2,9 @@ package com.example.api;
 
 import java.util.List;
 
+import com.example.domain.Item;
+import com.example.service.ItemService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.domain.Item;
-import com.example.service.ItemService;
 
 @RestController
 @RequestMapping("/api/items")
@@ -99,6 +99,20 @@ public class ItemRestController {
 	public List<Item> findAllByColum(@RequestParam String column, String keyword) {
 
 		return itemService.findAllByColumn(column, keyword);
+	}
+
+	@PutMapping("/addstar/{id}")
+	public Item addStar(@PathVariable Integer id, @RequestParam Integer star) {
+
+		Item item = itemService.findById(id);
+
+		item.setStar_count(item.getStar_count() + 1);
+
+		item.setStar((item.getStarAmount() + star) / item.getStar_count() + 1);
+
+		item.setStarAmount(item.getStarAmount() + star);
+
+		return itemService.update(item);
 	}
 
 }

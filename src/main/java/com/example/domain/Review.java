@@ -1,5 +1,8 @@
 package com.example.domain;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,30 +12,33 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+
 @Entity
-@Table(name = "items")
+@Table(name = "reviews")
 @Data
-public class Item {
+public class Review implements Serializable {
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7316415712051167210L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false)
-	private String name;
+	private Integer item_id;
+	
+	@Column(nullable = false)
+	private String reviewer_name;
 
 	@Column(nullable = false)
-	private Integer price;
-
+	private String comment;
+	
 	@Column(nullable = false)
-	private String memo;
-
-	private Integer star_count;
-
-	private Integer star;
-
-	private Integer starAmount;
-
-
-
+	private LocalDateTime created_at;
+	
+//	private String imgPath;
 }
