@@ -106,11 +106,14 @@ public class ItemRestController {
 
 		Item item = itemService.findById(id);
 
-		item.setStar_count(item.getStar_count() + 1);
+		if(item.getStar_count()==null){
+			item.setStar_count(1);
+			item.setStar(star);
+		}else{	
+            item.setStar((item.getStar()*item.getStar_count()+star)/(item.getStar_count()+1));
+			item.setStar_count(item.getStar_count()+1);
+		}
 
-		item.setStar((item.getStarAmount() + star) / item.getStar_count() + 1);
-
-		item.setStarAmount(item.getStarAmount() + star);
 
 		return itemService.update(item);
 	}

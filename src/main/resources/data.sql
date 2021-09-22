@@ -1,4 +1,4 @@
-INSERT INTO items(name, price,memo,star) VALUES('りんご', 100,'gmail 甘い　青森',1);
+INSERT INTO items(name, price,memo,star) VALUES('りんご', 100,'gmail 甘い　青森',0);
 -- INSERT INTO items(name, price,memo) VALUES('りんご', 150,'gmail 甘い　和歌山');
 -- INSERT INTO items(name, price,memo) VALUES('ばなな', 200,'gmail 甘い　青森');
 -- INSERT INTO items(name, price,memo) VALUES('ばなな', 600,'gmail 甘い　和歌山');

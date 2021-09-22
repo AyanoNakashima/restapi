@@ -1,6 +1,11 @@
 
 ###
-PUT http://localhost:8080/api/items/addstar/1?star=3
+PUT http://localhost:8080/api/items/addstar/1?star=5
+
+
+
+
+
 
 ###
 GET http://localhost:8080/api/items/findAllByColumn?column=name&keyword= りんご  みかん. ぶどう

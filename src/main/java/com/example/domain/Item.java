@@ -29,10 +29,6 @@ public class Item {
 
 	private Integer star_count;
 
-	private Integer star;
-
-	private Integer starAmount;
-
-
+	private double star;
 
 }
