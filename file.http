@@ -9,13 +9,12 @@ Content-Type: application/json
   {
     "name": "りんご",
     "price": 8888,
-    "memo": "gmail 甘い　青森SS",
-    "starCount":0,
-    "star":0
+    "memo": "gmail 甘い　青森SS"
   }
 
-### READ (findAll)
-GET http://localhost:8080/api/items
+
+### ID検索
+GET http://localhost:8080/api/items/1
 
 ###　UPDATE
 PUT http://localhost:8080/api/items/1
@@ -30,6 +29,41 @@ Content-Type: application/json
 ### DELETE
 Delete http://localhost:8080/api/items/1
 
+
+### READ (findAll)
+GET http://localhost:8080/api/items
+
 ### カラム内のキーワード検索（空白でsplit）
 GET http://localhost:8080/api/items/findAllByColumn?column=name&keyword= りんご  みかん. ぶどう
 
+
+
+
+
+
+
+１　値を代入レビューのファインドオールとID検索やる！
+
+
+
+
+
+
+### READ (findAll)
+GET http://localhost:8080/api/review
+
+### READ (findById)
+GET http://localhost:8080/api/review/4
+
+###　Create
+PUT http://localhost:8080/api/review/1
+Content-Type: application/json
+
+   {
+      "comment": "insertされたコメント",
+      "star": 3.0,
+      "starCount": 1
+    }
+
+###
+GET http://localhost:8080/api/items/1
