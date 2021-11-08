@@ -101,21 +101,26 @@ public class ItemRestController {
 		return itemService.findAllByColumn(column, keyword);
 	}
 
-	@PutMapping("/addstar/{id}")
-	public Item addStar(@PathVariable Integer id, @RequestParam Integer star) {
-
-		Item item = itemService.findById(id);
-
-		if(item.getStar_count()==null){
-			item.setStar_count(1);
-			item.setStar(star);
-		}else{	
-            item.setStar((item.getStar()*item.getStar_count()+star)/(item.getStar_count()+1));
-			item.setStar_count(item.getStar_count()+1);
-		}
 
 
-		return itemService.update(item);
-	}
+	// @PutMapping("/addstar/{id}")
+	// public Item addStar(@PathVariable Integer id, @RequestParam Double star) {
+
+	// 	Item item = itemService.findById(id);
+
+	// 	if (item != null) {
+
+	// 		item.setStar((item.getStar() * item.getStarCount() + star) / (item.getStarCount() + 1));
+	// 		item.setStarCount(item.getStarCount() + 1);
+
+	// 		return itemService.update(item);
+
+	// 	} else {
+
+	// 		return null;
+
+	// 	}
+
+	// }
 
 }

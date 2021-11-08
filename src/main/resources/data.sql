@@ -1,4 +1,4 @@
-INSERT INTO items(name, price,memo,star) VALUES('りんご', 100,'gmail 甘い　青森',0);
+INSERT INTO items(name, price,memo) VALUES('りんご', 100,'gmail 甘い　青森');
 -- INSERT INTO items(name, price,memo) VALUES('りんご', 150,'gmail 甘い　和歌山');
 -- INSERT INTO items(name, price,memo) VALUES('ばなな', 200,'gmail 甘い　青森');
 -- INSERT INTO items(name, price,memo) VALUES('ばなな', 600,'gmail 甘い　和歌山');
@@ -9,6 +9,7 @@ INSERT INTO items(name, price,memo,star) VALUES('りんご', 100,'gmail 甘い�
 -- INSERT INTO items(name, price,memo) VALUES('マスカット', 600,'gmail 酸っぱい　山梨');
 -- INSERT INTO items(name, price,memo) VALUES('いちご', 400,'yahoo 酸っぱい　栃木');
 -- INSERT INTO items(name, price,memo) VALUES('いちご', 1500,'yahoo 酸っぱい　茨城');
--- INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(1,'A', 'コメント',CURRENT_TIMESTAMP());
+INSERT INTO reviews(item_id,comment,star,star_count) VALUES(1,'コメント',1,1);
+INSERT INTO reviews(item_id,comment,star,star_count) VALUES(1,'コメント2',1,1);
 -- INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(1,'B', 'コメント',CURRENT_TIMESTAMP());
 -- INSERT INTO reviews(item_id,reviewer_name, comment,created_at) VALUES(2,'C', 'コメント',CURRENT_TIMESTAMP());
