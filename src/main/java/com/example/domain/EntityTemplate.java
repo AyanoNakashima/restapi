@@ -10,8 +10,7 @@ import lombok.Data;
 
 @MappedSuperclass
 @Data
-
-public abstract class Common {
+public abstract class EntityTemplate {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     
